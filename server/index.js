@@ -10,7 +10,7 @@ let app = expess();
 const PORT = 3000;
 
 var corsOptions = {
-    origin: 'http://localhost:5173',
+    origin:process.env.FRONTEND_URL,
     optionsSuccessStatus: 200 
   }
 app.use(cors(corsOptions))
