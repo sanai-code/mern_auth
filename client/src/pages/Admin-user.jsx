@@ -9,12 +9,11 @@ export let AdminUser = () => {
   let [response, setResponse] = useState();
   let [loading, setLoading] = useState(true);
   let [refetch,setRefetch] = useState(false)
-  let {lstoken} = useContext(ContextComp)
-  console.log("res", response);
+  let {lstoken,backendUrl} = useContext(ContextComp)
   try {
 
    async function getData(){
-    let res = await axios.post(`${process.env.BACKEND_URL}/api/v1/admin`,{},{headers:{"token":lstoken}})
+    let res = await axios.post(`${backendUrl}/api/v1/admin`,{},{headers:{"token":lstoken}})
         setResponse(res.data.users);
         setLoading(false);
         
@@ -26,8 +25,7 @@ export let AdminUser = () => {
 
     //! function to delete data
    async function handleClick(a){
-        let del = await axios.post(`${process.env.BACKEND_URL}/api/v1/admin/delete`,{_id:a})
-        console.log(del)
+        let del = await axios.post(`${backendUrl}/api/v1/admin/delete`,{_id:a})
         getData()
     }
     if (loading) {

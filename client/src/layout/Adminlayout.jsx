@@ -18,7 +18,6 @@ export let Adminlayout = ()=>{
      useEffect(() => {
         getData()
       }, []);
-      console.log(isAdmin)
       if(loading){
        return <div>
             Loading...

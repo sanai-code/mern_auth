@@ -2,13 +2,12 @@ import { useContext, useState } from "react";
 import axios from "axios";
 import { ContextComp } from "../context/ContextApi";
 export let Contact = () => {
-  let { getInfo } = useContext(ContextComp);
+  let { getInfo,backendUrl } = useContext(ContextComp);
   let [name,setName] = useState("")
   async function getingInfo(){
     let usename = await getInfo();
     setName(usename)
   }
-  console.log('kaha hai be',name)
   let [value, setVal] = useState({
     username: getInfo,
     email: name,
@@ -17,10 +16,8 @@ export let Contact = () => {
   });
   async function handleSubmit(e) {
     e.preventDefault();
-    console.log(e);
-    console.log(value);
     let response = await axios.post(
-      `${process.env.BACKEND_URL}/contact/contact`,
+      `${backendUrl}/contact/contact`,
       value
     );
   }
@@ -29,7 +26,6 @@ export let Contact = () => {
     let targetVal = e.target.value;
     setVal({ ...value, [name]: targetVal });
   }
-  console.log(value);
   return (
     <div className="w-full h-dvh">
       <div

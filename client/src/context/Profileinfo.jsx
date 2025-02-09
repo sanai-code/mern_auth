@@ -3,7 +3,6 @@ import { ContextComp } from "./ContextApi";
 
 export let ProfileInfo = () => {
   let { getInfo } = useContext(ContextComp);
-  console.log('this is getinfo',getInfo)
   let [name, setName] = useState("");
   useEffect(() => {
     getInfo().then((res) => setName(res.data.msg.username));
@@ -16,7 +15,6 @@ export let ProfileInfo = () => {
 };
 export const Me = ()=>{
   let { getInfo } = useContext(ContextComp);
-  console.log('this is getinfo',getInfo)
   let [name, setName] = useState("");
   useEffect(() => {
     getInfo().then((res) => setName(res.data.msg.username.toUpperCase()));

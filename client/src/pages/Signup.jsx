@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import axios from "axios"
 import { ContextComp } from "../context/ContextApi";
 export let Signup = ()=>{
-    let {setToken} = useContext(ContextComp)
+    let {setToken,backendUrl} = useContext(ContextComp)
     let [value,setVal] = useState({
             username:"",
             email:"",
@@ -10,8 +10,7 @@ export let Signup = ()=>{
         })
         async function handleSubmit(e){
             e.preventDefault();
-            let response = await axios.post(`${process.env.BACKEND_URL}/api/v1/register`,value)
-            console.log('this is response data',response.data.code)
+            let response = await axios.post(`${backendUrl}/api/v1/register`,value)
             if(response.data.token){
                 setToken(response.data.token)
             }else{

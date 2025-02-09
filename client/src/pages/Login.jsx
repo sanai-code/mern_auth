@@ -5,7 +5,7 @@ import {  toast } from 'react-toastify';
 import { redirect } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 export let Login = ()=>{
-    let {setToken} = useContext(ContextComp)
+    let {setToken,backendUrl} = useContext(ContextComp)
     let [value,setVal] = useState({
             email:"",
             password:""
@@ -14,7 +14,7 @@ export let Login = ()=>{
             e.preventDefault();
           
             try {
-                let response = await axios.post(`${process.env.BACKEND_URL}/api/v1/login`,value)
+                let response = await axios.post(`${backendUrl}/api/v1/login`,value)
                 if(response){
                     // localStorage.setItem("token",response.data.token)
                     toast('🦄 Login Successfull!', {
@@ -41,7 +41,6 @@ export let Login = ()=>{
                         progress: undefined,
                         theme: "light",
                         });
-                    console.log('isi it',response.data.msg)
                 
             }
             }

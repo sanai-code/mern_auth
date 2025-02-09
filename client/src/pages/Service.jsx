@@ -1,7 +1,10 @@
+import { useContext } from "react"
 import { useFetch } from "../hooks/useFetch"
+import { ContextComp } from "../context/ContextApi"
 
 export let Service = ()=>{
-    let response = useFetch(`${process.env.BACKEND_URL}/about`)
+    const {backendUrl} = useContext(ContextComp)
+    let response = useFetch(`${backendUrl}/about`)
    let data = response.data
    if(!data){
     return(
