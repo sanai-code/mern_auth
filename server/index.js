@@ -8,7 +8,6 @@ import { aboutRouter } from "./router/About.js";
 import { adminRouter } from "./router/admin.js";
 let app = expess();
 const PORT = 3000;
-
 var corsOptions = {
     origin:process.env.FRONTEND_URL,
     optionsSuccessStatus: 200 
