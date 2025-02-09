@@ -17,7 +17,7 @@ export let ProviderComp = ({ children }) => {
     }
     const getInfo = async()=>{
         console.log(lstoken)
-        let response = await axios.get("http://localhost:3000/api/v1/me",{headers:{"token":lstoken}})
+        let response = await axios.get(`${process.env.BACKEND_URL}/api/v1/me`,{headers:{"token":lstoken}})
         let username =  response.data.msg.username
         return response
     }

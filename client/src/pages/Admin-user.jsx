@@ -14,7 +14,7 @@ export let AdminUser = () => {
   try {
 
    async function getData(){
-    let res = await axios.post("http://localhost:3000/api/v1/admin",{},{headers:{"token":lstoken}})
+    let res = await axios.post(`${process.env.BACKEND_URL}/api/v1/admin`,{},{headers:{"token":lstoken}})
         setResponse(res.data.users);
         setLoading(false);
         
@@ -26,7 +26,7 @@ export let AdminUser = () => {
 
     //! function to delete data
    async function handleClick(a){
-        let del = await axios.post("http://localhost:3000/api/v1/admin/delete",{_id:a})
+        let del = await axios.post(`${process.env.BACKEND_URL}/api/v1/admin/delete`,{_id:a})
         console.log(del)
         getData()
     }

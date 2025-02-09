@@ -10,7 +10,7 @@ export let Signup = ()=>{
         })
         async function handleSubmit(e){
             e.preventDefault();
-            let response = await axios.post("http://localhost:3000/api/v1/register",value)
+            let response = await axios.post(`${process.env.BACKEND_URL}/api/v1/register`,value)
             console.log('this is response data',response.data.code)
             if(response.data.token){
                 setToken(response.data.token)

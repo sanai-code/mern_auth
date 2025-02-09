@@ -14,7 +14,7 @@ export let Login = ()=>{
             e.preventDefault();
           
             try {
-                let response = await axios.post("http://localhost:3000/api/v1/login",value)
+                let response = await axios.post(`${process.env.BACKEND_URL}/api/v1/login`,value)
                 if(response){
                     // localStorage.setItem("token",response.data.token)
                     toast('🦄 Login Successfull!', {

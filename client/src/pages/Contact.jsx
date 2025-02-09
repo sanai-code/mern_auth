@@ -20,7 +20,7 @@ export let Contact = () => {
     console.log(e);
     console.log(value);
     let response = await axios.post(
-      "http://localhost:3000/contact/contact",
+      `${process.env.BACKEND_URL}/contact/contact`,
       value
     );
   }

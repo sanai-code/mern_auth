@@ -1,7 +1,7 @@
 import { useFetch } from "../hooks/useFetch"
 
 export let Service = ()=>{
-    let response = useFetch("http://localhost:3000/about")
+    let response = useFetch(`${process.env.BACKEND_URL}/about`)
    let data = response.data
    if(!data){
     return(
