@@ -12,7 +12,7 @@ var corsOptions = {
     origin:process.env.FRONTEND_URL,
     optionsSuccessStatus: 200 
   }
-app.use(cors(corsOptions))
+app.use(cors())
 app.use(expess.json())
 app.use("/api/v1",userRouter)
 app.use("/contact",contactRouter)
