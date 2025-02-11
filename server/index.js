@@ -18,7 +18,11 @@ app.use("/api/v1",userRouter)
 app.use("/contact",contactRouter)
 app.use("/about",aboutRouter)
 app.use("/api/v1/admin",adminRouter)
-
+app.get("/",(req,res)=>{
+    res.json({
+        msg:'hi'
+    })
+})
 async function main(){
     await mongoose.connect(process.env.DATABASE_URL)
     app.listen(PORT,()=>{
